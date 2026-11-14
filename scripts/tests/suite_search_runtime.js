@@ -1281,7 +1281,7 @@ async function runSearchRuntimeSuite(ctx) {
           ctrl._polityRulers(ctrl._resolvePolity('宋', 450)).startsWith('武帝 → 少帝 → 文帝'),
           `Liu Song rulers must derive from monarchPrefix era spans, got ${ctrl._polityRulers(ctrl._resolvePolity('宋', 450))}`
         );
-        const ccDesc = ctrl._resolvePolity('曹操(北方)', 205);
+        const ccDesc = ctrl._resolvePolity('曹操（北方）', 205);
         assert(
           !ccDesc.curated && ccDesc.from === 200 && ccDesc.to === 219 && ccDesc.keywords.includes('曹操'),
           `Uncurated warlord must derive its on-map span 200–219 and name keyword, got ${JSON.stringify(ccDesc)}`
@@ -1673,6 +1673,37 @@ async function runSearchRuntimeSuite(ctx) {
         ctrl.locale = 'zh';
       }
 
+      // Deep links (?year=383): the full snapshot bundle is preloaded from <head>, and while a
+      // snapshot is still downloading no other era's borders or key stay on screen.
+      {
+        assert(
+          /link\.href = 'js\/atlas_snapshots\.js\?v=[0-9a-f]{8}'/.test(indexHtml) &&
+            indexHtml.indexOf('deeplink-boot') < indexHtml.indexOf('css/style.css'),
+          'index.html must preload the snapshot bundle for deep links before the stylesheet'
+        );
+        const flags = () => {
+          const set = new Set();
+          return { add: (c) => set.add(c), remove: (c) => set.delete(c), contains: (c) => set.has(c) };
+        };
+        const saved = { svg: ctrl.svg, mapKey: ctrl.mapKey, snapshots: ctrl.snapshots };
+        try {
+          ctrl.svg = { classList: flags() };
+          ctrl.mapKey = { classList: flags() };
+          ctrl.snapshots = { s_loaded: {} };
+          ctrl._markAwaitingSnapshot('s_loaded');
+          assert(!ctrl.svg.classList.contains('is-awaiting-snapshot'), 'a loaded snapshot hides nothing');
+          ctrl._markAwaitingSnapshot('s_pending');
+          assert(
+            ctrl.svg.classList.contains('is-awaiting-snapshot') && ctrl.mapKey.classList.contains('is-awaiting-snapshot'),
+            'a pending snapshot hides the borders and the key until it is rendered'
+          );
+        } finally {
+          ctrl.svg = saved.svg;
+          ctrl.mapKey = saved.mapKey;
+          ctrl.snapshots = saved.snapshots;
+        }
+      }
+
       // CUJ 45: High-resolution terrain tiles — reset view stays on the base relief, Data Saver is
       // respected, every indexed tile exists, and the base relief shares the tiles' projection.
       {
@@ -1680,7 +1711,7 @@ async function runSearchRuntimeSuite(ctx) {
           indexHtml.includes('<g id="terrain-relief-layer">') &&
             indexHtml.includes('<g id="grp-terrain-tiles"></g>') &&
             indexHtml.includes('<g id="grp-paleo-sea"></g>') &&
-            cssSrc.includes('#terrain-relief-layer {\n  opacity: 0.48;') &&
+            cssSrc.includes('#terrain-relief-layer {\n  opacity: 0.62;') &&
             cssSrc.includes('.paleo-sea {\n  fill: #e6dfd1;'),
           'index.html must wrap #terrain-relief-img, #grp-terrain-tiles, and #grp-paleo-sea in #terrain-relief-layer so .paleo-sea (#e6dfd1) composites seamlessly with open water'
         );
@@ -2438,11 +2469,11 @@ async function runSearchRuntimeSuite(ctx) {
 
     // 6-era boundary & gap regression checks (195 Donghan, 322 Dongjin, 676 Tang, 1410 Ming, 1650 Qing, 1918 ROC)
     const ptIn = sandbox.window.MercatorProjector.pointInShape;
-    const dz195 = snapshots.s_donghan_d1.polities.find((p) => p.title === '董卓(长安)');
-    const mt195 = snapshots.s_donghan_d1.polities.find((p) => p.title === '马腾(凉州)');
+    const dz195 = snapshots.s_donghan_d1.polities.find((p) => p.title === '董卓（长安）');
+    const mt195 = snapshots.s_donghan_d1.polities.find((p) => p.title === '马腾（凉州）');
     assert(
       !ptIn(106.5, 38.0, dz195.shape) && ptIn(106.5, 38.0, mt195.shape),
-      's_donghan_d1 (195 CE): Northern Ningxia [106.5, 38.0] must belong to 马腾(凉州), not a Dong Zhuo horn'
+      's_donghan_d1 (195 CE): Northern Ningxia [106.5, 38.0] must belong to 马腾（凉州）, not a Dong Zhuo horn'
     );
     for (const [sk, mainTitle] of [['s_tang_a', '唐'], ['s_tang_wz1', '武周']]) {
       const mPol = snapshots[sk].polities.find((p) => p.title === mainTitle);
@@ -2526,7 +2557,7 @@ async function runSearchRuntimeSuite(ctx) {
       const text316 = html316.replace(/<[^>]+>/g, '');
       assert.strictEqual(
         text316,
-        '据《资治通鉴》卷89、卷91；《晋书》卷108',
+        '据《资治通鉴》卷89、卷91 《晋书》卷108',
         'xijin:316 source line merges repeated chapters per work, in citation order'
       );
       assert(!html316.includes('<a '), 'the line is plain text: Wikisource is unreachable for many readers');
