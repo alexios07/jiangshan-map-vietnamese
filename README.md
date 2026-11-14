@@ -6,11 +6,19 @@
 
 **Bản đồ lịch sử Trung Quốc tương tác từ thời Chiến Quốc (403 TCN) đến nay — kéo dòng thời gian, lần theo các thành cổ và bước theo dấu chân lịch sử**
 
-> **Đây là bản tiếng Việt do Minh Tran thực hiện** (Vietnamese edition prepared by Minh Tran), dựa trên dự án [DeanChensj/jiangshan-map](https://github.com/DeanChensj/jiangshan-map) của tác giả DeanChensj, bổ sung giao diện và toàn bộ nội dung bằng tiếng Việt. Bản này không phải trang chính thức của dự án gốc. Xem trực tuyến tại **[tuonglam.ca](https://tuonglam.ca/)** (mặc định tiếng Việt). Trang demo bên dưới là của dự án gốc và hiện chưa có tiếng Việt.
+> **Đây là bản tiếng Việt do Minh Tran thực hiện** (Vietnamese edition prepared by Minh Tran), dựa trên dự án [DeanChensj/jiangshan-map](https://github.com/DeanChensj/jiangshan-map) của tác giả DeanChensj, bổ sung giao diện và toàn bộ nội dung bằng tiếng Việt. Bản này không phải trang chính thức của dự án gốc.
 >
-> *Sửa đổi so với bản gốc (tháng 11/2026): thêm ngôn ngữ tiếng Việt và đặt làm mặc định, chuyển tên miền sang tuonglam.ca, gỡ công cụ thống kê của tác giả gốc. Chi tiết trong lịch sử commit.*
+> **Sửa đổi so với bản gốc (tháng 11/2026):**
+> - Thêm ngôn ngữ tiếng Việt và đặt làm mặc định; tiếng Trung giản thể mở bằng `?lang=zh`, tiếng Anh bằng `?lang=en`.
+> - Phông chữ hiển thị đầy đủ dấu tiếng Việt (Noto Serif / Noto Sans), khoảng cách chữ phù hợp chữ Latin, tên sông núi trên bản đồ bằng tiếng Việt.
+> - Chuyển trang web sang tên miền [tuonglam.ca](https://tuonglam.ca/) và gỡ công cụ thống kê truy cập của tác giả gốc.
+> - Nút Star và mục ghi công trong menu trỏ về bản tiếng Việt này; liên kết tới tác giả gốc vẫn được giữ nguyên.
+>
+> Chi tiết trong lịch sử commit.
 
-[**Xem demo trực tuyến (giao diện tiếng Anh) → https://deanchen.me/jiangshan-map/?lang=en**](https://deanchen.me/jiangshan-map/?lang=en)
+[**Xem trực tuyến bản tiếng Việt → https://tuonglam.ca/**](https://tuonglam.ca/)
+
+*Trang gốc của tác giả (tiếng Trung / tiếng Anh): [deanchen.me/jiangshan-map](https://deanchen.me/jiangshan-map/)*
 
 *Câu chuyện phía sau dự án (tiếng Trung): [Từ bản đồ trong sách giáo khoa đến 1k sao trên GitHub](https://deanchen.me/history/atlas/2026/10/25/jiangshan-map-story.html)*
 
@@ -25,7 +33,7 @@
 </p>
 
 <p align="center">
-  <a href="https://deanchen.me/jiangshan-map/?lang=en">
+  <a href="https://tuonglam.ca/">
     <img src="assets/hero_demo_en.webp" alt="Giang Sơn Thời Tự — giới thiệu tương tác 15 giây (Tần thống nhất sáu nước, kéo dòng thời gian 2.400 năm, nguồn gốc địa danh Trường An và hành trình lưu đày của Tô Thức)" width="100%" />
   </a>
 </p>
@@ -53,7 +61,7 @@ Khi đọc sử Trung Hoa hay thơ cổ, bạn đã bao giờ tự hỏi:
 - **Dòng thời gian phóng to được**: Kéo hai tay nắm ở hai đầu dòng thời gian vào trong để phóng to một quãng lịch sử (tiện cho các thời kỳ ngắn như Tần, Tam Quốc hay Ngũ Đại); bấm đúp lên dòng thời gian để trở lại toàn cảnh.
 - **Thuyết minh bằng giọng nói**: Bật công tắc thuyết minh cạnh nút phát, chế độ tự phát sẽ đọc to từng năm và các sự kiện bằng giọng đọc có sẵn của trình duyệt (bản tiếng Việt dùng giọng vi-VN nếu máy có); tính năng này cũng đọc theo biên niên nhân vật khi tự phát (cần trình duyệt hỗ trợ tổng hợp giọng nói).
 
-> [Xem trực tiếp: năm Vĩnh Lạc thứ 13 nhà Minh (1415) · hai kinh, mười ba tỉnh và soi "phủ Ứng Thiên" →](https://deanchen.me/jiangshan-map/?year=1415&zoom=1.75&center=115.8,33.2&hover=Yingtian%20Prefecture&lang=en)
+> [Xem trực tiếp: năm Vĩnh Lạc thứ 13 nhà Minh (1415) · hai kinh, mười ba tỉnh và soi "phủ Ứng Thiên" →](https://tuonglam.ca/?year=1415&zoom=1.75&center=115.8,33.2&hover=%E5%BA%94%E5%A4%A9%E5%BA%9C)
 
 ![Nhà Minh năm 1415 · xem trước phủ Ứng Thiên](assets/preview_1415_ming_yingtian_en.webp)
 
@@ -66,7 +74,7 @@ Khi đọc sử Trung Hoa hay thơ cổ, bạn đã bao giờ tự hỏi:
 - **Sự kiện diễn ra ngay tại chỗ**: Dưới mỗi dòng triều đại, xem các sự kiện lớn xảy ra đúng tại nơi đó (ví dụ *biến pháp Thương Ưởng* và *Tần thống nhất* ở Hàm Dương, *Quan Vũ dìm bảy đạo quân* ở Phàn thành, *biến Huyền Vũ Môn* ở Trường An, hay *Nhạc Phi tử nạn* ở Lâm An). Bấm nút **`Biên niên`** góc trên bên phải thẻ để chỉ giữ các triều có sự kiện lớn, và bấm vào bất kỳ sự kiện nào để du hành thẳng tới năm đó!
 - **Cửa ải hiểm yếu và địa danh thi ca / chiến trường**: Khám phá các cửa ải nổi tiếng — *Hàm Cốc Quan*, *Đồng Quan*, *Kiếm Môn Quan*, *Nhạn Môn Quan*, *Ngọc Môn Quan*, *Dương Quan* và *Sơn Hải Quan* — vẽ bằng biểu tượng cổng *Hán khuyết* kèm ghi chú địa thế, cùng các chiến trường và địa danh văn học như *Xích Bích*, *Cai Hạ*, *Ngũ Trượng Nguyên*, *Lan Đình*, *lầu Nhạc Dương*, *gác Đằng Vương*, *Lam Quan*, *Lâu Lan*, *La Bố Bạc* và *hồ Issyk-Kul*.
 
-> [Xem trực tiếp: năm Khai Nguyên 29 thời Thịnh Đường (741) · mở thẻ gia phả 2.400 năm của Trường An →](https://deanchen.me/jiangshan-map/?year=741&place=Chang'an&lang=en)
+> [Xem trực tiếp: năm Khai Nguyên 29 thời Thịnh Đường (741) · mở thẻ gia phả 2.400 năm của Trường An →](https://tuonglam.ca/?year=741&place=%E9%95%BF%E5%AE%89)
 
 ![Thịnh Đường năm 741 · truy nguồn Trường An và các sự kiện chính](assets/preview_741_tang_trace_en.webp)
 
@@ -87,7 +95,7 @@ Bấm vào **ô tìm kiếm chung** góc trên bên trái (có gợi ý nhân v�
 
 Mỗi lần bước sang sự kiện tiếp theo (`‹ / ›`, `← / →`, hoặc `Phím cách` để tự phát), **năm trên dòng thời gian, vị vua đang trị vì, niên hiệu và cương vực các triều đại đều thay đổi theo từng bước chân**, làm nổi bật cung đường đang đi kèm trích đoạn sử liệu gốc và những bài thơ được viết đúng tại nơi đó.
 
-> [Xem trực tiếp: cuộc đời và hành trình lưu đày của Tô Đông Pha thời Tống (1037–1101) →](https://deanchen.me/jiangshan-map/?person=sushi&lang=en)
+> [Xem trực tiếp: cuộc đời và hành trình lưu đày của Tô Đông Pha thời Tống (1037–1101) →](https://tuonglam.ca/?person=sushi)
 
 ![Biên niên nhân vật · hành trình cuộc đời và lưu đày của Tô Thức](assets/preview_journey_sushi_en.webp)
 
@@ -99,7 +107,7 @@ Tự tin mình rành địa lý lịch sử Trung Quốc? Bấm **`Đố vui ›
 - **Gợi ý lịch sử theo triều đại + định vị trên bản đồ trống**: Tên các thành bị ẩn đi, đề bài yêu cầu bạn tìm một thành cổ qua 10 vòng có độ khó tăng dần — kèm **gợi ý lịch sử theo triều đại** (không tiết lộ tên thành phố hiện đại). Thả ghim để xem trước và điều chỉnh, bấm nút **`Xác nhận ↵`** cạnh ghim để chốt câu trả lời với các vòng tròn tính điểm theo khoảng cách, và nhận điểm dựa trên khoảng cách đại vòng tròn tới tọa độ thật!
 - Hoàn thành 10 vòng để nhận danh hiệu bản đồ cổ như **Thái sử lệnh · Dư đồ đại gia (太史令 · 舆图大家)**, **Chức phương lang trung (职方郎中)** hay **Châu quận tòng sự (州郡从事)**.
 
-> [Xem trực tiếp: năm Nguyên Thú thứ 2 đời Hán Vũ Đế (121 TCN) · bắt đầu thử thách định vị →](https://deanchen.me/jiangshan-map/?year=-121&quiz=locate&lang=en)
+> [Xem trực tiếp: năm Nguyên Thú thứ 2 đời Hán Vũ Đế (121 TCN) · bắt đầu thử thách định vị →](https://tuonglam.ca/?year=-121&quiz=locate)
 
 ![Tây Hán năm 121 TCN · xem trước thử thách định vị](assets/preview_quiz_challenge_en.webp)
 
@@ -120,15 +128,15 @@ Tự tin mình rành địa lý lịch sử Trung Quốc? Bấm **`Đố vui ›
 
 ### Đường dẫn chia sẻ
 
-Thêm tham số vào địa chỉ để chia sẻ bất kỳ thời khắc lịch sử, trận đánh, gia phả thành phố hay lộ trình nhiều điểm nào. Các ví dụ dưới đây mở trang demo gốc bằng giao diện tiếng Anh; khi chạy bản tiếng Việt trên máy, thay `lang=en` bằng `lang=vi` (ví dụ `http://localhost:8000/?person=sushi&lang=vi`).
-- **Nhảy tới một năm hoặc một biến đổi lãnh thổ**: [`?year=-403&lang=en`](https://deanchen.me/jiangshan-map/?year=-403&lang=en) (403 TCN · Tam gia phân Tấn) / [`?year=-121&lang=en`](https://deanchen.me/jiangshan-map/?year=-121&lang=en) (121 TCN · Hoắc Khứ Bệnh mở hành lang Hà Tây) / [`?year=648&lang=en`](https://deanchen.me/jiangshan-map/?year=648&lang=en) (648 · An Tây tứ trấn và Vương Huyền Sách ở Thiên Trúc) / [`?year=1288&lang=en`](https://deanchen.me/jiangshan-map/?year=1288&lang=en) (1288 · Tuyên Chính viện nhà Nguyên cai quản Tây Tạng) / [`?year=1881&lang=en`](https://deanchen.me/jiangshan-map/?year=1881&lang=en) (1881 · Tăng Kỷ Trạch đòi lại Y Lê) / [`?year=1945&lang=en`](https://deanchen.me/jiangshan-map/?year=1945&lang=en) (1945 · Đài Loan được trao trả)
-- **Định vị một trận đánh nổi tiếng**: [`?year=-260&place=长平&lang=en`](https://deanchen.me/jiangshan-map/?year=-260&place=长平&lang=en) (trận Trường Bình) / [`?year=208&place=赤壁&lang=en`](https://deanchen.me/jiangshan-map/?year=208&place=赤壁&lang=en) (trận Xích Bích) / [`?year=383&place=淝水&lang=en`](https://deanchen.me/jiangshan-map/?year=383&place=淝水&lang=en) (trận Phì Thủy)
-- **Xem gia phả 2.400 năm của một thành phố**: [`?year=741&place=长安&lang=en`](https://deanchen.me/jiangshan-map/?year=741&place=长安&lang=en) (Trường An / Tây An) / [`?year=1415&place=应天府&lang=en`](https://deanchen.me/jiangshan-map/?year=1415&place=应天府&lang=en) (Kiến Khang / Ứng Thiên / Nam Kinh) / [`?year=819&place=蓝关&lang=en`](https://deanchen.me/jiangshan-map/?year=819&place=蓝关&lang=en) (Hàn Dũ ở Lam Quan)
-- **Vẽ lộ trình thơ ca hay hành quân tự chọn**: [`?year=763&place=剑外,巴峡,巫峡,襄阳,洛阳&lang=en`](https://deanchen.me/jiangshan-map/?year=763&place=剑外,巴峡,巫峡,襄阳,洛阳&lang=en) (đường về quê của Đỗ Phủ năm 763) / [`?year=1079,1080,1094,1097&place=湖州,黄州,惠州,儋州&lang=en`](https://deanchen.me/jiangshan-map/?year=1079,1080,1094,1097&place=湖州,黄州,惠州,儋州&lang=en) (hành trình lưu đày nhiều năm của Tô Thức qua Hồ Châu, Hoàng Châu, Huệ Châu và Đam Châu)
-- **Mở biên niên không gian – thời gian của một nhân vật**: [`?person=qinshihuang&lang=en`](https://deanchen.me/jiangshan-map/?person=qinshihuang&lang=en) (Tần Thủy Hoàng) / [`?person=zhangqian&lang=en`](https://deanchen.me/jiangshan-map/?person=zhangqian&lang=en) (Trương Khiên) / [`?person=zhugeliang&lang=en`](https://deanchen.me/jiangshan-map/?person=zhugeliang&lang=en) (Gia Cát Lượng) / [`?person=xuanzang&lang=en`](https://deanchen.me/jiangshan-map/?person=xuanzang&lang=en) (Huyền Trang) / [`?person=libai&lang=en`](https://deanchen.me/jiangshan-map/?person=libai&lang=en) (Lý Bạch) / [`?person=sushi&lang=en`](https://deanchen.me/jiangshan-map/?person=sushi&lang=en) (Tô Thức) / [`?person=wangyangming&lang=en`](https://deanchen.me/jiangshan-map/?person=wangyangming&lang=en) (Vương Dương Minh)
-- **So sánh nhiều người hoặc theo dõi một sự kiện**: [`?person=libai,dufu&lang=en`](https://deanchen.me/jiangshan-map/?person=libai,dufu&lang=en) (Lý Bạch và Đỗ Phủ) / [`?person=caocao,liubei,sunquan&lang=en`](https://deanchen.me/jiangshan-map/?person=caocao,liubei,sunquan&lang=en) (Tào Tháo, Lưu Bị và Tôn Quyền) / [`?event=chuhan&lang=en`](https://deanchen.me/jiangshan-map/?event=chuhan&lang=en) (Sở – Hán tranh hùng) / [`?event=anshi&lang=en`](https://deanchen.me/jiangshan-map/?event=anshi&lang=en) (loạn An – Sử) / [`?event=jingkang&lang=en`](https://deanchen.me/jiangshan-map/?event=jingkang&lang=en) (biến Tĩnh Khang)
-- **Bắt đầu một lượt đố**: [`?year=-121&quiz=locate&lang=en`](https://deanchen.me/jiangshan-map/?year=-121&quiz=locate&lang=en) (thử thách định vị trên bản đồ)
-- **Đổi ngôn ngữ giao diện**: `?lang=vi` (tiếng Việt, bản này) / [`?lang=en`](https://deanchen.me/jiangshan-map/?lang=en) (tiếng Anh) / [`?lang=zh-tw`](https://deanchen.me/jiangshan-map/?lang=zh-tw) (tiếng Trung phồn thể) / [`/`](https://deanchen.me/jiangshan-map/) (tiếng Trung giản thể)
+Thêm tham số vào địa chỉ để chia sẻ bất kỳ thời khắc lịch sử, trận đánh, gia phả thành phố hay lộ trình nhiều điểm nào. Các ví dụ dưới đây mở bản tiếng Việt trên [tuonglam.ca](https://tuonglam.ca/); thêm `` hoặc `&lang=zh` vào cuối để xem bằng tiếng Anh hoặc tiếng Trung. Khi chạy trên máy, thay `https://tuonglam.ca/` bằng `http://localhost:8000/`.
+- **Nhảy tới một năm hoặc một biến đổi lãnh thổ**: [`?year=-403`](https://tuonglam.ca/?year=-403) (403 TCN · Tam gia phân Tấn) / [`?year=-121`](https://tuonglam.ca/?year=-121) (121 TCN · Hoắc Khứ Bệnh mở hành lang Hà Tây) / [`?year=648`](https://tuonglam.ca/?year=648) (648 · An Tây tứ trấn và Vương Huyền Sách ở Thiên Trúc) / [`?year=1288`](https://tuonglam.ca/?year=1288) (1288 · Tuyên Chính viện nhà Nguyên cai quản Tây Tạng) / [`?year=1881`](https://tuonglam.ca/?year=1881) (1881 · Tăng Kỷ Trạch đòi lại Y Lê) / [`?year=1945`](https://tuonglam.ca/?year=1945) (1945 · Đài Loan được trao trả)
+- **Định vị một trận đánh nổi tiếng**: [`?year=-260&place=长平`](https://tuonglam.ca/?year=-260&place=长平) (trận Trường Bình) / [`?year=208&place=赤壁`](https://tuonglam.ca/?year=208&place=赤壁) (trận Xích Bích) / [`?year=383&place=淝水`](https://tuonglam.ca/?year=383&place=淝水) (trận Phì Thủy)
+- **Xem gia phả 2.400 năm của một thành phố**: [`?year=741&place=长安`](https://tuonglam.ca/?year=741&place=长安) (Trường An / Tây An) / [`?year=1415&place=应天府`](https://tuonglam.ca/?year=1415&place=应天府) (Kiến Khang / Ứng Thiên / Nam Kinh) / [`?year=819&place=蓝关`](https://tuonglam.ca/?year=819&place=蓝关) (Hàn Dũ ở Lam Quan)
+- **Vẽ lộ trình thơ ca hay hành quân tự chọn**: [`?year=763&place=剑外,巴峡,巫峡,襄阳,洛阳`](https://tuonglam.ca/?year=763&place=剑外,巴峡,巫峡,襄阳,洛阳) (đường về quê của Đỗ Phủ năm 763) / [`?year=1079,1080,1094,1097&place=湖州,黄州,惠州,儋州`](https://tuonglam.ca/?year=1079,1080,1094,1097&place=湖州,黄州,惠州,儋州) (hành trình lưu đày nhiều năm của Tô Thức qua Hồ Châu, Hoàng Châu, Huệ Châu và Đam Châu)
+- **Mở biên niên không gian – thời gian của một nhân vật**: [`?person=qinshihuang`](https://tuonglam.ca/?person=qinshihuang) (Tần Thủy Hoàng) / [`?person=zhangqian`](https://tuonglam.ca/?person=zhangqian) (Trương Khiên) / [`?person=zhugeliang`](https://tuonglam.ca/?person=zhugeliang) (Gia Cát Lượng) / [`?person=xuanzang`](https://tuonglam.ca/?person=xuanzang) (Huyền Trang) / [`?person=libai`](https://tuonglam.ca/?person=libai) (Lý Bạch) / [`?person=sushi`](https://tuonglam.ca/?person=sushi) (Tô Thức) / [`?person=wangyangming`](https://tuonglam.ca/?person=wangyangming) (Vương Dương Minh)
+- **So sánh nhiều người hoặc theo dõi một sự kiện**: [`?person=libai,dufu`](https://tuonglam.ca/?person=libai,dufu) (Lý Bạch và Đỗ Phủ) / [`?person=caocao,liubei,sunquan`](https://tuonglam.ca/?person=caocao,liubei,sunquan) (Tào Tháo, Lưu Bị và Tôn Quyền) / [`?event=chuhan`](https://tuonglam.ca/?event=chuhan) (Sở – Hán tranh hùng) / [`?event=anshi`](https://tuonglam.ca/?event=anshi) (loạn An – Sử) / [`?event=jingkang`](https://tuonglam.ca/?event=jingkang) (biến Tĩnh Khang)
+- **Bắt đầu một lượt đố**: [`?year=-121&quiz=locate`](https://tuonglam.ca/?year=-121&quiz=locate) (thử thách định vị trên bản đồ)
+- **Đổi ngôn ngữ giao diện**: [`/`](https://tuonglam.ca/) (tiếng Việt, mặc định) / [`?lang=en`](https://tuonglam.ca/?lang=en) (tiếng Anh) / [`?lang=zh`](https://tuonglam.ca/?lang=zh) (tiếng Trung giản thể) / [`?lang=zh-tw`](https://tuonglam.ca/?lang=zh-tw) (tiếng Trung phồn thể)
 
 ### Nhúng vào trang của bạn
 
@@ -140,7 +148,7 @@ Thêm tham số vào địa chỉ để chia sẻ bất kỳ thời khắc lịc
 
 ```html
 <iframe
-  src="https://deanchen.me/jiangshan-map/?embed=1&year=1104&trace=101.778,36.617&from=1072&to=1126&lang=en"
+  src="https://tuonglam.ca/?embed=1&year=1104&trace=101.778,36.617&from=1072&to=1126"
   width="100%" height="480" loading="lazy" style="border:0"
   title="Chronicles of the Realm · 1104 CE, Northern Song"></iframe>
 ```
@@ -189,9 +197,9 @@ WeChat Official Accounts, Zhihu và Xiaohongshu không cho phép iframe; hãy ch
 
 | Chế độ | URL ví dụ | Cách hiển thị tự động |
 | :--- | :--- | :--- |
-| **Định vị một điểm (0D)** | [`?year=819&place=蓝关&lang=en`](https://deanchen.me/jiangshan-map/?year=819&place=蓝关&lang=en)<br>*(bài thơ lưu đày của Hàn Dũ ở Lam Quan năm 819)* | Nhảy tới năm Nguyên Hòa thứ 14 nhà Đường (819), cắm ghim ở Lam Quan trên núi Tần Lĩnh và mở thẻ gia phả hành chính 2.400 năm |
-| **Lộ trình nhiều điểm cùng năm (1D)** | [`?year=763&place=剑外,巴峡,巫峡,襄阳,洛阳&lang=en`](https://deanchen.me/jiangshan-map/?year=763&place=剑外,巴峡,巫峡,襄阳,洛阳&lang=en)<br>*(bài thơ của Đỗ Phủ năm 763 khi nghe tin thu lại Hà Nam, Hà Bắc)* | Vẽ các cung màu son đánh số `1` → `5` trên bản đồ nhà Đường năm 763 và tự canh khung nhìn; bấm vào bất kỳ điểm nào để xem gia phả |
-| **Lộ trình không gian – thời gian nhiều năm (4D)** | [`?year=1079,1080,1094,1097&place=湖州,黄州,惠州,儋州&lang=en`](https://deanchen.me/jiangshan-map/?year=1079,1080,1094,1097&place=湖州,黄州,惠州,儋州&lang=en)<br>*(con đường quan lộ của Tô Thức qua Hồ Châu, Hoàng Châu, Huệ Châu và Đam Châu)* | Ghép `year[i]` với `place[i]`, ghi năm lịch sử lên các điểm dừng và đổi bản đồ triều đại bên dưới mỗi khi bạn bấm vào một điểm |
+| **Định vị một điểm (0D)** | [`?year=819&place=蓝关`](https://tuonglam.ca/?year=819&place=蓝关)<br>*(bài thơ lưu đày của Hàn Dũ ở Lam Quan năm 819)* | Nhảy tới năm Nguyên Hòa thứ 14 nhà Đường (819), cắm ghim ở Lam Quan trên núi Tần Lĩnh và mở thẻ gia phả hành chính 2.400 năm |
+| **Lộ trình nhiều điểm cùng năm (1D)** | [`?year=763&place=剑外,巴峡,巫峡,襄阳,洛阳`](https://tuonglam.ca/?year=763&place=剑外,巴峡,巫峡,襄阳,洛阳)<br>*(bài thơ của Đỗ Phủ năm 763 khi nghe tin thu lại Hà Nam, Hà Bắc)* | Vẽ các cung màu son đánh số `1` → `5` trên bản đồ nhà Đường năm 763 và tự canh khung nhìn; bấm vào bất kỳ điểm nào để xem gia phả |
+| **Lộ trình không gian – thời gian nhiều năm (4D)** | [`?year=1079,1080,1094,1097&place=湖州,黄州,惠州,儋州`](https://tuonglam.ca/?year=1079,1080,1094,1097&place=湖州,黄州,惠州,儋州)<br>*(con đường quan lộ của Tô Thức qua Hồ Châu, Hoàng Châu, Huệ Châu và Đam Châu)* | Ghép `year[i]` với `place[i]`, ghi năm lịch sử lên các điểm dừng và đổi bản đồ triều đại bên dưới mỗi khi bạn bấm vào một điểm |
 
 ### 2. Chụp ảnh và tra cứu JSON bằng một lệnh (cho lệnh gọi công cụ của agent)
 
