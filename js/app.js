@@ -2245,10 +2245,12 @@
       }
       const ghBtn = this._id('act-github-star');
       if (ghBtn) {
-        ghBtn.title =
-          this.locale === 'en'
-            ? 'Star DeanChensj/jiangshan-map on GitHub'
-            : this._zh('在 GitHub 上为「江山时序」点亮 Star');
+        // This fork's Star button points at the Vietnamese edition repository.
+        ghBtn.title = this.viMode
+          ? 'Gắn sao cho bản tiếng Việt trên GitHub'
+          : this.locale === 'en'
+            ? 'Star the Vietnamese edition (alexios07/jiangshan-map-vietnamese) on GitHub'
+            : this._zh('在 GitHub 上为「江山时序」越南语版点亮 Star');
       }
       const moreBtn = this._id('act-more-menu');
       if (moreBtn) {
@@ -2259,14 +2261,19 @@
           moreBtn.setAttribute('aria-label', moreLbl);
         }
       }
-      const setMoreCopy = (id, enTxt, zhTxt) => {
+      const setMoreCopy = (id, enTxt, zhTxt, viTxt) => {
         const el = this._id(id);
-        if (el) el.textContent = this.locale === 'en' ? enTxt : this._zh(zhTxt);
+        if (!el) return;
+        if (this.viMode && viTxt) el.textContent = viTxt;
+        else el.textContent = this.locale === 'en' ? enTxt : this._zh(zhTxt);
       };
       setMoreCopy('lbl-more-story', 'Making-Of Essay (ZH)', '创作手记 · 幕后故事');
       setMoreCopy('sub-more-story', 'From textbook maps to Jiangshan', '从课本插图到开源历史地图');
-      setMoreCopy('lbl-more-about', 'About & More Projects', '作者博客 · 更多作品');
+      setMoreCopy('lbl-more-about', 'Original Author · About & Projects', '原作者博客 · 更多作品', 'Tác giả gốc · Giới thiệu & dự án khác');
       setMoreCopy('sub-more-about', 'deanchen.me', 'deanchen.me');
+      // Credit for this fork's Vietnamese edition, alongside the original author's links.
+      setMoreCopy('lbl-more-vi', 'Vietnamese edition prepared by Minh Tran', '越南语版 · 由 Minh Tran 整理', 'Bản tiếng Việt do Minh Tran thực hiện');
+      setMoreCopy('sub-more-vi', 'github.com/alexios07/jiangshan-map-vietnamese', 'github.com/alexios07/jiangshan-map-vietnamese');
       this._updateMusicUi();
       this._updateAutoplayUi();
       this._updatePlaySpeedUi();

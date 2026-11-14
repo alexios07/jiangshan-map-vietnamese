@@ -6,6 +6,8 @@
 
 **An Interactive Historical Atlas of China from the Warring States (403 BCE) to the Present — Scrub Through Time, Trace Ancient Cities, and Walk in the Footsteps of History**
 
+> **Vietnamese edition prepared by Minh Tran**, based on [DeanChensj/jiangshan-map](https://github.com/DeanChensj/jiangshan-map) by DeanChensj. This fork is not the official site of the original project. View it at **[tuonglam.ca](https://tuonglam.ca/)** (Vietnamese by default). *Changes from the original (November 2026): added a Vietnamese language and made it the default, moved the site to tuonglam.ca, and removed the original author's analytics. Details are in the commit history.*
+
 [**Play Live Demo (English UI) → https://deanchen.me/jiangshan-map/?lang=en**](https://deanchen.me/jiangshan-map/?lang=en)
 
 *The story behind it (in Chinese): [From textbook maps to 1k GitHub stars](https://deanchen.me/history/atlas/2026/10/25/jiangshan-map-story.html)*
@@ -302,3 +304,5 @@ Code and the data created by this project are released under **GPL-3.0**. One la
 **Report a data error**: found a wrong year, place or description? [Open a data correction issue](https://github.com/DeanChensj/jiangshan-map/issues/new?template=data-error.yml) and cite a source if you can.
 
 Copyright © 2026 DeanChensj. Licensed under GPL-3.0 (see [LICENSE](LICENSE)), except as noted above.
+
+Vietnamese edition prepared by Minh Tran, 2026 — [alexios07/jiangshan-map-vietnamese](https://github.com/alexios07/jiangshan-map-vietnamese), also licensed under GPL-3.0.

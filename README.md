@@ -6,7 +6,9 @@
 
 **Bản đồ lịch sử Trung Quốc tương tác từ thời Chiến Quốc (403 TCN) đến nay — kéo dòng thời gian, lần theo các thành cổ và bước theo dấu chân lịch sử**
 
-> **Đây là bản tiếng Việt** của dự án [DeanChensj/jiangshan-map](https://github.com/DeanChensj/jiangshan-map) (tác giả: DeanChensj), bổ sung giao diện và toàn bộ nội dung bằng tiếng Việt. Mở trang với `?lang=vi` hoặc bấm nút **VI** trong bộ chọn ngôn ngữ. Trang demo trực tuyến bên dưới là của dự án gốc và hiện chưa có tiếng Việt; để xem bản tiếng Việt, hãy [chạy trên máy](#chạy-trên-máy).
+> **Đây là bản tiếng Việt do Minh Tran thực hiện** (Vietnamese edition prepared by Minh Tran), dựa trên dự án [DeanChensj/jiangshan-map](https://github.com/DeanChensj/jiangshan-map) của tác giả DeanChensj, bổ sung giao diện và toàn bộ nội dung bằng tiếng Việt. Bản này không phải trang chính thức của dự án gốc. Xem trực tuyến tại **[tuonglam.ca](https://tuonglam.ca/)** (mặc định tiếng Việt). Trang demo bên dưới là của dự án gốc và hiện chưa có tiếng Việt.
+>
+> *Sửa đổi so với bản gốc (tháng 11/2026): thêm ngôn ngữ tiếng Việt và đặt làm mặc định, chuyển tên miền sang tuonglam.ca, gỡ công cụ thống kê của tác giả gốc. Chi tiết trong lịch sử commit.*
 
 [**Xem demo trực tuyến (giao diện tiếng Anh) → https://deanchen.me/jiangshan-map/?lang=en**](https://deanchen.me/jiangshan-map/?lang=en)
 
@@ -284,7 +286,7 @@ Mã nguồn và dữ liệu do dự án tạo ra được phát hành theo **GPL
 | Đơn vị hành chính cấp một (`region`: 刺史部 / 道 / 路 / 省 …) | Vẽ thủ công theo sử liệu; nguồn của các phiên bản đầu không được ghi lại | GPL-3.0 |
 | **Ranh giới cấp châu quận** (`prefecture`: 郡 / 州 / 府, gồm cả các quận thời Chiến Quốc và Tần) | Lấy từ **CHGIS V6** và **Robert M. Hartwell China Historical GIS**, đơn giản hóa còn 0,01° và chỉnh sửa thủ công | **Không thuộc GPL-3.0.** Chỉ dùng cho mục đích học thuật, phi thương mại; không phân phối lại. Xem bên dưới |
 | Điểm dân cư, mốc sự kiện, hành trình, biên niên nhân vật, giới thiệu địa danh | Dự án tự biên soạn từ sử liệu | GPL-3.0 |
-| Bản dịch tiếng Việt (`js/i18n_vi.js`) | Bản fork này, dịch từ nguyên văn tiếng Trung | GPL-3.0 |
+| Bản tiếng Việt (`js/i18n_vi.js`) | Do Minh Tran thực hiện (bản fork này), dịch từ nguyên văn tiếng Trung | GPL-3.0 |
 | Tỉnh hiện đại | DataV GeoAtlas (Alibaba Cloud) | Theo điều khoản của DataV GeoAtlas |
 | Sông, hồ, các nước láng giềng | Dữ liệu phạm vi công cộng | Phạm vi công cộng |
 | Bóng địa hình | Kết xuất bằng `scripts/build_terrain_tiles.py` từ [AWS Terrain Tiles](https://registry.opendata.aws/terrain-tiles/) (**SRTM**, **GMTED2010**, **ETOPO1** thuộc phạm vi công cộng); chỉ công bố ảnh bóng đổ với độ phân giải không mịn hơn khoảng 1 km mỗi điểm ảnh | GPL-3.0 (ảnh) |
@@ -304,4 +306,6 @@ Mã nguồn và dữ liệu do dự án tạo ra được phát hành theo **GPL
 
 **Báo lỗi dữ liệu**: thấy năm, địa danh hay mô tả bị sai? [Mở một issue báo lỗi dữ liệu ở dự án gốc](https://github.com/DeanChensj/jiangshan-map/issues/new?template=data-error.yml) và trích nguồn nếu có thể.
 
-Copyright © 2026 DeanChensj. Phát hành theo GPL-3.0 (xem [LICENSE](LICENSE)), trừ các trường hợp đã nêu ở trên. Bản dịch tiếng Việt thuộc bản fork [alexios07/jiangshan-map-vietnamese](https://github.com/alexios07/jiangshan-map-vietnamese), cũng theo GPL-3.0.
+Copyright © 2026 DeanChensj. Phát hành theo GPL-3.0 (xem [LICENSE](LICENSE)), trừ các trường hợp đã nêu ở trên.
+
+Bản tiếng Việt do Minh Tran thực hiện (Vietnamese edition prepared by Minh Tran), 2026 — [alexios07/jiangshan-map-vietnamese](https://github.com/alexios07/jiangshan-map-vietnamese), cũng phát hành theo GPL-3.0.
