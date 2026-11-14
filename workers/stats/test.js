@@ -39,7 +39,7 @@ assert.deepStrictEqual(points[0], {
 assert.deepStrictEqual(points[2].doubles, [200], 'one event is capped at 200');
 
 points.length = 0;
-assert.strictEqual((await post({ headers: { Referer: 'http://deanchen.me/jiangshan-map/?year=741' } })).status, 204);
+assert.strictEqual((await post({ headers: { Referer: 'http://tuonglam.ca/?year=741' } })).status, 204);
 assert.strictEqual(points.length, 3, 'a missing Origin falls back to the Referer origin');
 
 points.length = 0;

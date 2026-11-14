@@ -32,8 +32,8 @@ function createMcpRuntime() {
     localStorage: { getItem: () => null, setItem: () => {} },
     history: { replaceState: () => {} },
     location: {
-      origin: 'https://deanchen.me',
-      pathname: '/jiangshan-map/',
+      origin: 'https://tuonglam.ca',
+      pathname: '/',
       search: '',
       hash: '',
     },

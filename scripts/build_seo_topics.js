@@ -20,7 +20,7 @@ const { CONTROLLER_SCRIPTS } = require('./sync_version');
 const ROOT = path.resolve(__dirname, '..');
 const JS_DIR = path.join(ROOT, 'js');
 const TOPICS_DIR = path.join(ROOT, 'topics');
-const BASE_URL = 'https://deanchen.me/jiangshan-map';
+const BASE_URL = 'https://tuonglam.ca';
 const LASTMOD = '2026-10-21';
 
 function escHtml(str) {
@@ -697,7 +697,7 @@ function renderFooter(allDynasties) {
       </div>
     </section>
     <footer class="page-footer">
-      <div>© 江山时序（Jiangshan Historical Atlas）· <a href="${BASE_URL}/">deanchen.me/jiangshan-map</a> · 历史疆域与政区为示意性近似</div>
+      <div>© 江山时序（Jiangshan Historical Atlas）· <a href="${BASE_URL}/">tuonglam.ca</a> · 历史疆域与政区为示意性近似</div>
       <div><a href="${BASE_URL}/topics/index.html">专题图志总览</a> · <a href="${BASE_URL}/sitemap.xml">Sitemap</a> · <a href="${BASE_URL}/llms.txt">LLMs.txt</a></div>
     </footer>`;
 }

@@ -361,13 +361,13 @@ async function runSearchRuntimeSuite(ctx) {
           'Switching to zh-tw must update address bar with lang=zh-tw while preserving user-specified URL params'
         );
 
-        // 3. Switching back to zh removes lang param while keeping user-specified URL params intact
+        // 3. Switching back to zh writes lang=zh (this fork defaults to Vietnamese) while keeping user-specified URL params intact
         ctrl.locale = 'zh';
         ctrl._syncUrlLangParam();
         assert.strictEqual(
           sandbox.location.search,
-          '?year=317&place=%E5%BB%BA%E5%BA%B7',
-          'Switching to zh must remove lang param while preserving user-specified URL params'
+          '?year=317&place=%E5%BB%BA%E5%BA%B7&lang=zh',
+          'Switching to zh must write lang=zh while preserving user-specified URL params'
         );
 
         // 4. Bare homepage: switching to EN sets ?lang=en; switching back to zh restores clean pathname
@@ -377,7 +377,7 @@ async function runSearchRuntimeSuite(ctx) {
         assert.strictEqual(sandbox.location.search, '?lang=en', 'Bare URL + EN must set ?lang=en');
         ctrl.locale = 'zh';
         ctrl._syncUrlLangParam();
-        assert.strictEqual(sandbox.location.search, '', 'Bare URL + zh must clear query string');
+        assert.strictEqual(sandbox.location.search, '?lang=zh', 'Bare URL + zh must set ?lang=zh');
 
         // 4b. Once armed, the URL mirrors restorable state (refresh/share land on the same view)
         // and one-shot params (place, q, quiz) are dropped because they no longer describe the screen.
@@ -404,19 +404,19 @@ async function runSearchRuntimeSuite(ctx) {
           ctrl.locale = 'zh';
           Object.assign(ctrl, { year: 450, activePolity: { key: 'beiwei', curated: true } });
           ctrl._writeUrlState();
-          assert.strictEqual(sandbox.location.search, '?year=450&polity=beiwei&terrain=0', 'An open curated profile must be shareable via ?polity=');
+          assert.strictEqual(sandbox.location.search, '?year=450&polity=beiwei&terrain=0&lang=zh', 'An open curated profile must be shareable via ?polity=');
 
           ctrl.activePolity = { key: 'fallback_x', curated: false };
           ctrl._writeUrlState();
-          assert.strictEqual(sandbox.location.search, '?year=450&terrain=0', 'Uncurated fallback profiles are not restorable and must not be written');
+          assert.strictEqual(sandbox.location.search, '?year=450&terrain=0&lang=zh', 'Uncurated fallback profiles are not restorable and must not be written');
 
           Object.assign(ctrl, { activePolity: null, activeTrace: [108.94, 34.26] });
           ctrl._writeUrlState();
-          assert.strictEqual(sandbox.location.search, '?year=450&trace=108.940,34.260&terrain=0', 'An open place card must round-trip via ?trace=lng,lat');
+          assert.strictEqual(sandbox.location.search, '?year=450&trace=108.940,34.260&terrain=0&lang=zh', 'An open place card must round-trip via ?trace=lng,lat');
 
           ctrl.activePolity = { key: 'beiwei', curated: true };
           ctrl._writeUrlState();
-          assert.strictEqual(sandbox.location.search, '?year=450&polity=beiwei&trace=108.940,34.260&terrain=0', 'A place card opened on top of a profile must be kept alongside ?polity=');
+          assert.strictEqual(sandbox.location.search, '?year=450&polity=beiwei&trace=108.940,34.260&terrain=0&lang=zh', 'A place card opened on top of a profile must be kept alongside ?polity=');
           ctrl.activePolity = null;
 
           const indexHtml = require('fs').readFileSync(path.join(ROOT, 'index.html'), 'utf8');
@@ -424,11 +424,11 @@ async function runSearchRuntimeSuite(ctx) {
 
           Object.assign(ctrl, { activePerson: { profiles: [{ key: 'libai' }, { key: 'dufu' }] }, activePersonEventIdx: 3 });
           ctrl._writeUrlState();
-          assert.strictEqual(sandbox.location.search, '?year=450&person=libai,dufu&stop=3&terrain=0', 'Person trajectories (incl. pairs and the current stop) must be shareable');
+          assert.strictEqual(sandbox.location.search, '?year=450&person=libai,dufu&stop=3&terrain=0&lang=zh', 'Person trajectories (incl. pairs and the current stop) must be shareable');
 
           Object.assign(ctrl, { activePerson: { profiles: [{ key: 'adhoc_1' }] }, activeTrace: null });
           ctrl._writeUrlState();
-          assert.strictEqual(sandbox.location.search, '?year=450&terrain=0', 'Ad-hoc people cannot be restored by key and must not be written');
+          assert.strictEqual(sandbox.location.search, '?year=450&terrain=0&lang=zh', 'Ad-hoc people cannot be restored by key and must not be written');
 
           ctrl.activePerson = null;
           ctrl.locale = 'en';
@@ -496,7 +496,7 @@ async function runSearchRuntimeSuite(ctx) {
           ctrl._syncUrlLangParam();
           assert.strictEqual(sandbox.location.search, '?embed=1&year=1104&trace=101.778,36.617&from=1072&to=1126', 'An embed must never rewrite the URL (the host page owns its address bar)');
           const openUrl = ctrl._embedOpenUrl();
-          assert(openUrl.endsWith('?year=1104&trace=101.778,36.617'), `The "open in atlas" link must carry the view without embed params, got ${openUrl}`);
+          assert(openUrl.endsWith('?year=1104&trace=101.778,36.617&lang=zh'), `The "open in atlas" link must carry the view without embed params, got ${openUrl}`);
 
           for (const readme of ['README.md', 'README_ZH.md']) {
             const text = require('fs').readFileSync(path.join(ROOT, readme), 'utf8');

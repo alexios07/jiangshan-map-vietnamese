@@ -1379,6 +1379,7 @@
           params.set('place', formattedPlace);
           if (isEn) params.set('lang', this.viMode ? 'vi' : 'en');
           else if (this.locale === 'zh-tw') params.set('lang', 'zh-tw');
+          else params.set('lang', 'zh');
           const basePath =
             typeof location !== 'undefined' ? `${location.origin}${location.pathname}` : '';
           return {
@@ -1476,6 +1477,7 @@
       }
       if (isEn) params.set('lang', this.viMode ? 'vi' : 'en');
       else if (this.locale === 'zh-tw') params.set('lang', 'zh-tw');
+      else params.set('lang', 'zh');
       const basePath =
         typeof location !== 'undefined' ? `${location.origin}${location.pathname}` : '';
 

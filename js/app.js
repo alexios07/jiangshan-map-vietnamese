@@ -407,7 +407,8 @@
       const rawLang = (new URLSearchParams(location.search).get('lang') || '').toLowerCase();
       // Vietnamese runs on the English rendering path (Latin script, same layout rules) with a
       // Vietnamese overlay on top: see _ensureViLocale. Untranslated text falls back to English.
-      this.viMode = /^(vi|vi-vn|vi_vn)$/.test(rawLang);
+      // This fork opens in Vietnamese when the URL has no ?lang; Simplified Chinese is ?lang=zh.
+      this.viMode = rawLang === '' || /^(vi|vi-vn|vi_vn)$/.test(rawLang);
       this.locale =
         rawLang === 'en' || this.viMode
           ? 'en'
@@ -1832,12 +1833,11 @@
       if (typeof location === 'undefined') return;
       try {
         const params = this._urlStateParams();
-        if (target === 'zh') params.delete('lang');
-        else params.set('lang', target);
+        params.set('lang', target);
         const qs = params.toString();
         location.href = `${location.pathname || '/'}${qs ? `?${qs}` : ''}${location.hash || ''}`;
       } catch (_) {
-        location.href = target === 'zh' ? './' : `./?lang=${target}`;
+        location.href = `./?lang=${target}`;
       }
     }
 
@@ -1862,7 +1862,7 @@
         } else if (this.locale === 'zh-tw') {
           params.set('lang', 'zh-tw');
         } else {
-          params.delete('lang');
+          params.set('lang', 'zh');
         }
         const qs = params.toString();
         const nextSearch = qs ? `?${qs}` : '';
@@ -1902,6 +1902,7 @@
       if (prev.has('terrain')) p.set('terrain', prev.get('terrain'));
       if (this.locale === 'en') p.set('lang', this.viMode ? 'vi' : 'en');
       else if (this.locale === 'zh-tw') p.set('lang', 'zh-tw');
+      else p.set('lang', 'zh');
       return p;
     }
 
@@ -2131,7 +2132,7 @@
       const homeLink = this._id('act-home');
       if (homeLink) {
         // Home = a clean URL in the current language; this is the "reset" entry point.
-        homeLink.href = this.locale === 'en' ? (this.viMode ? './?lang=vi' : './?lang=en') : this.locale === 'zh-tw' ? './?lang=zh-tw' : './';
+        homeLink.href = this.locale === 'en' ? (this.viMode ? './?lang=vi' : './?lang=en') : this.locale === 'zh-tw' ? './?lang=zh-tw' : './?lang=zh';
         homeLink.title = this.locale === 'en' ? 'Back to home' : this._zh('回到首页');
       }
       this._id('txt-subtitle').textContent = this.uiStr('brand_sub', '中国历史地图 · 战国 → 今');
@@ -6111,7 +6112,7 @@
     // ---------------- Chronicle Sidebar ----------------
     _syncDocumentSeoMeta() {
       if (typeof document === 'undefined') return;
-      const baseSiteUrl = 'https://deanchen.me/jiangshan-map/';
+      const baseSiteUrl = 'https://tuonglam.ca/';
       const isEn = this.locale === 'en';
       const cur = this.dynasties && this.dynasties[this.dynastyIdx];
       let pageTitle = isEn
@@ -6121,6 +6122,9 @@
         ? 'Explore 2,400+ years of Chinese history from the Warring States (403 BCE) to the present across 18 eras, 185 multi-stage territory snapshots, 471 milestones, 571 city landmarks, 20 strategic passes, and 113+ person chronicles.'
         : '交互式中国历史地图时间轴（公元前403年战国三家分晋至现代）：浏览18个朝代、185幅多阶段历史疆域与州道政区快照、471条编年大事、571处城池地标、20座天下名关与百余位青史人物行迹。';
       let canonicalUrl = baseSiteUrl;
+      // This fork serves Vietnamese at the bare URL, so Vietnamese canonicals carry no lang and
+      // Chinese ones carry lang=zh.
+      const langTail = this.viMode ? '' : isEn ? 'lang=en' : 'lang=zh';
 
       if (this.activePerson) {
         const p = this.activePerson.profile;
@@ -6133,7 +6137,7 @@
         pageDesc = isEn
           ? `Interactive spatio-temporal chronicle of ${pName} across ${this.activePerson.events.length} historical sites in the Jiangshan Atlas of China.`
           : `${pName}${isStory ? '' : '生平'} ${this.activePerson.events.length} 处历史事件时空落点、历代疆域与古今地名对照。`;
-        canonicalUrl = `${baseSiteUrl}?${paramKey}=${encodeURIComponent(p.key)}${isEn ? '&lang=en' : ''}`;
+        canonicalUrl = `${baseSiteUrl}?${paramKey}=${encodeURIComponent(p.key)}${langTail ? `&${langTail}` : ''}`;
       } else if (cur && this._bootDone) {
         const dName = this.dynastyName(cur);
         const dSpan = this.formatSpan(cur);
@@ -6147,9 +6151,9 @@
           : `${dName}（${dSpan}）历史疆域与州郡政区地图。都城：${dSeat}。${dSum}`;
         const qParams = typeof location !== 'undefined' ? new URLSearchParams(location.search) : null;
         if (qParams && qParams.has('year')) {
-          canonicalUrl = `${baseSiteUrl}?year=${this.year}${isEn ? '&lang=en' : ''}`;
-        } else if (isEn) {
-          canonicalUrl = `${baseSiteUrl}?lang=en`;
+          canonicalUrl = `${baseSiteUrl}?year=${this.year}${langTail ? `&${langTail}` : ''}`;
+        } else if (langTail) {
+          canonicalUrl = `${baseSiteUrl}?${langTail}`;
         }
       }
 
@@ -6186,7 +6190,7 @@
         'aria-label',
         'Historical Dynasties, Person Chronicles & Strategic Passes Directory'
       );
-      const baseSiteUrl = 'https://deanchen.me/jiangshan-map/';
+      const baseSiteUrl = 'https://tuonglam.ca/';
       const dynItems = (this.dynasties || [])
         .map((d) => {
           const dName = this.dynastyName(d);
