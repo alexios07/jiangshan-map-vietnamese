@@ -142,6 +142,9 @@ def build_query(args):
     params.append(("lang", "en"))
   elif args.lang in ("zh-tw", "tw", "hk", "zh-hk", "zh-hant", "hant"):
     params.append(("lang", "zh-tw"))
+  else:
+    # This fork opens in Vietnamese without ?lang, so Simplified Chinese must be explicit.
+    params.append(("lang", "zh"))
   return urllib.parse.urlencode(params, safe=",;")
 
 
