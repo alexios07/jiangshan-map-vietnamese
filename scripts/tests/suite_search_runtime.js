@@ -420,7 +420,8 @@ async function runSearchRuntimeSuite(ctx) {
           ctrl.activePolity = null;
 
           const indexHtml = require('fs').readFileSync(path.join(ROOT, 'index.html'), 'utf8');
-          assert(/data-cf-beacon='[^']*"spa":\s*false/.test(indexHtml), 'Cloudflare beacon must keep "spa": false, or every URL state write is counted as a pageview');
+          // This fork removed the upstream Vercount and Cloudflare Web Analytics tags.
+          assert(!/cloudflareinsights|vercount/.test(indexHtml), "index.html must not load the upstream author's analytics");
 
           Object.assign(ctrl, { activePerson: { profiles: [{ key: 'libai' }, { key: 'dufu' }] }, activePersonEventIdx: 3 });
           ctrl._writeUrlState();
