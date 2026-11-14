@@ -680,6 +680,7 @@
     // Everything is applied once, in place, after the English locale loads; switching to or
     // from Vietnamese reloads the page so the English data is never needed again.
     _ensureViLocale() {
+      this._ensureViFonts();
       if (!this._viLocalePromise) {
         const hasEn =
           window.EN_LOCALE && window.EN_LOCALE.dict && Object.keys(window.EN_LOCALE.dict).length > 0;
@@ -700,6 +701,21 @@
         });
       }
       return this._viLocalePromise;
+    }
+
+    // The Chinese faces (Noto Serif SC, Songti, SimSun) have no Vietnamese letters, so the browser
+    // borrowed each accented letter from another font mid-word. Noto Serif / Noto Sans cover the
+    // whole Vietnamese alphabet; Google Fonts serves only the latin/vietnamese slices a page uses.
+    _ensureViFonts() {
+      if (this._viFontsRequested || typeof document === 'undefined' || !document.head) return;
+      this._viFontsRequested = true;
+      try {
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href =
+          'https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600;700&family=Noto+Sans:wght@400;500;600&display=swap';
+        document.head.appendChild(link);
+      } catch (_) {}
     }
 
     _viData() {
@@ -2447,7 +2463,9 @@
       if (this.grpRivers) {
         this.grpRivers.querySelectorAll('.hydro-label').forEach((node) => {
           node.textContent =
-            this.locale === 'en' ? node.dataset.en || '' : this._zh(node.dataset.zh || '');
+            this.locale === 'en'
+              ? this._hydroLatin(node.dataset.zh, node.dataset.en)
+              : this._zh(node.dataset.zh || '');
         });
       }
 
@@ -2524,6 +2542,14 @@
       if (item.appear !== undefined && y < item.appear) return false;
       if (item.vanish !== undefined && y >= item.vanish) return false;
       return true;
+    }
+
+    // River/range labels are first drawn before the Vietnamese table loads, and the refresh reads
+    // the English name stored on the node, so look the Vietnamese name up by the Chinese one.
+    _hydroLatin(zh, en) {
+      if (!this.viMode) return en || '';
+      const vi = this._viData();
+      return (zh && vi.dict[zh]) || (en && vi.en[en]) || en || '';
     }
 
     _hydroLabelPair(lb, year = this.year) {
@@ -2680,7 +2706,7 @@
           },
           this.grpRivers
         );
-        tNode.textContent = this.locale === 'en' ? en : this._zh(zh);
+        tNode.textContent = this.locale === 'en' ? this._hydroLatin(zh, en) : this._zh(zh);
       }
     }
 

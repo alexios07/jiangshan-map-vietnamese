@@ -3352,53 +3352,64 @@ html.is-embed .timeline-crop-mask {
 }
 
 /* English Locale Typography Adjustments */
-html[lang="en"] .brand-group .subtitle-mark {
+html[lang="en"] .brand-group .subtitle-mark,
+html[lang="vi"] .brand-group .subtitle-mark {
   letter-spacing: 0.04em;
 }
 
-html[lang="en"] #dynasty-title {
+html[lang="en"] #dynasty-title,
+html[lang="vi"] #dynasty-title {
   font-family: var(--serif-stack);
   font-size: 23px;
   font-weight: 700;
   line-height: 1.2;
 }
 
-html[lang="en"] .polity-caption {
+html[lang="en"] .polity-caption,
+html[lang="vi"] .polity-caption {
   font-size: 13px;
   letter-spacing: 0.04em;
 }
 
-html[lang="en"] .polity-caption.rival {
+html[lang="en"] .polity-caption.rival,
+html[lang="vi"] .polity-caption.rival {
   font-size: 11px;
 }
 
 html[lang="en"] .polity-caption.protectorate,
-html[lang="en"] .polity-caption.neighbor {
+html[lang="en"] .polity-caption.neighbor,
+html[lang="vi"] .polity-caption.protectorate,
+html[lang="vi"] .polity-caption.neighbor {
   font-size: 9.5px;
   letter-spacing: 0.02em;
 }
 
-html[lang="en"] .region-caption {
+html[lang="en"] .region-caption,
+html[lang="vi"] .region-caption {
   font-size: 7.5px;
   letter-spacing: 0.01em;
 }
 
-html[lang="en"] .band-cell {
+html[lang="en"] .band-cell,
+html[lang="vi"] .band-cell {
   font-family: var(--sans-stack);
   font-size: 10px;
   letter-spacing: -0.01em;
 }
 
-html[lang="en"] .band-cell.is-compact {
+html[lang="en"] .band-cell.is-compact,
+html[lang="vi"] .band-cell.is-compact {
   font-size: 9.5px;
   letter-spacing: -0.03em;
 }
 
-html[lang="en"] #milestone-list li {
+html[lang="en"] #milestone-list li,
+html[lang="vi"] #milestone-list li {
   grid-template-columns: 78px 1fr;
 }
 
-html[lang="en"] .genealogy-list li {
+html[lang="en"] .genealogy-list li,
+html[lang="vi"] .genealogy-list li {
   grid-template-columns: 88px 1fr;
 }
 
@@ -4126,7 +4137,8 @@ html[lang="en"] .genealogy-list li {
   letter-spacing: 0.06em;
 }
 
-html[lang="en"] #act-toggle-pane .tp-label {
+html[lang="en"] #act-toggle-pane .tp-label,
+html[lang="vi"] #act-toggle-pane .tp-label {
   font-family: var(--sans-stack);
   font-size: 9.5px;
   letter-spacing: 0.02em;
@@ -4721,7 +4733,8 @@ html[lang="en"] #act-toggle-pane .tp-label {
     white-space: nowrap;
   }
 
-  html[lang="en"] #workspace-body:not(.is-mobile-chronicle-open) #chronicle-pane #dynasty-title {
+  html[lang="en"] #workspace-body:not(.is-mobile-chronicle-open) #chronicle-pane #dynasty-title,
+  html[lang="vi"] #workspace-body:not(.is-mobile-chronicle-open) #chronicle-pane #dynasty-title {
     font-size: 14px;
     line-height: 1.2;
     letter-spacing: -0.01em;
@@ -4785,7 +4798,8 @@ html[lang="en"] #act-toggle-pane .tp-label {
     white-space: nowrap;
   }
 
-  html[lang="en"] #workspace-body.is-mobile-chronicle-open #chronicle-pane #dynasty-title {
+  html[lang="en"] #workspace-body.is-mobile-chronicle-open #chronicle-pane #dynasty-title,
+  html[lang="vi"] #workspace-body.is-mobile-chronicle-open #chronicle-pane #dynasty-title {
     font-size: 15px;
     line-height: 1.2;
     letter-spacing: -0.01em;
@@ -5288,7 +5302,8 @@ html[lang="en"] #act-toggle-pane .tp-label {
   grid-template-columns: 78px 1fr;
 }
 
-html[lang="en"] .genealogy-list li.person-ev-row {
+html[lang="en"] .genealogy-list li.person-ev-row,
+html[lang="vi"] .genealogy-list li.person-ev-row {
   grid-template-columns: 94px 1fr;
 }
 
@@ -5980,8 +5995,21 @@ button.story-inline-person:hover {
   border-left-color: color-mix(in srgb, var(--camp-color) 42%, transparent);
 }
 
-/* Vietnamese: the calligraphy webfont is subset to Chinese and plain Latin letters, so
-   Vietnamese diacritics would fall back mid-word; use the serif face for Latin titles. */
+/* Vietnamese: the Chinese faces (Noto Serif SC, Songti, SimSun) have no Vietnamese letters, so
+   accented letters fell back to another font mid-word. Noto Serif / Noto Sans (requested by
+   _ensureViFonts in Vietnamese mode only) cover the whole alphabet; Chinese characters still fall
+   through to the Chinese faces. The map keeps system fallbacks after Noto (see #atlas-svg). */
+html[lang='vi'] {
+  --serif-stack: 'Noto Serif', 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
+  --sans-stack: 'Noto Sans', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+
+html[lang='vi'] #atlas-svg {
+  --serif-stack: 'Noto Serif', 'Cambria', 'Times New Roman', 'Songti SC', 'SimSun', serif;
+  --sans-stack: 'Noto Sans', 'Segoe UI', 'Arial', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+
+/* The calligraphy webfont is subset to Chinese and plain Latin letters; use the serif face. */
 html[lang='vi'] #dynasty-title {
   font-family: var(--serif-stack);
   font-weight: 600;
