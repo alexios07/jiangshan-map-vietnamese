@@ -186,7 +186,8 @@ function runViewportProbe(chromeBin, tmpHtmlPath, width, height) {
         `--window-size=${width},${height}`,
         '--virtual-time-budget=1500',
         '--dump-dom',
-        `file://${tmpHtmlPath}?audit_w=${width}&audit_h=${height}`,
+        // This fork opens in Vietnamese without ?lang; the geometry baseline is the Chinese layout.
+        `file://${tmpHtmlPath}?audit_w=${width}&audit_h=${height}&lang=zh`,
       ],
       { encoding: 'utf8', maxBuffer: 32 * 1024 * 1024, stdio: ['ignore', 'pipe', 'pipe'] }
     );
