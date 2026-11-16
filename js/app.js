@@ -6148,10 +6148,15 @@
       const baseSiteUrl = 'https://tuonglam.ca/';
       const isEn = this.locale === 'en';
       const cur = this.dynasties && this.dynasties[this.dynastyIdx];
-      let pageTitle = isEn
+      // Vietnamese defaults match the static tags in index.html (what link previews read).
+      let pageTitle = this.viMode
+        ? 'Giang Sơn Thời Tự · Bản đồ lịch sử Trung Quốc tương tác (403 TCN – nay)'
+        : isEn
         ? this.uiStr('title', 'Jiangshan Atlas · Interactive Historical Atlas of China (403 BCE – Present)')
         : '江山时序 · 中国历史地图时间轴（战国至现代历代疆域、州郡政区与古今地名沿革）';
-      let pageDesc = isEn
+      let pageDesc = this.viMode
+        ? 'Kéo dòng thời gian qua 2.400 năm lịch sử Trung Quốc: cương vực 18 thời kỳ, nguồn gốc địa danh xưa – nay, cửa ải hiểm yếu và hành trình của các nhân vật lịch sử. Bản tiếng Việt.'
+        : isEn
         ? 'Explore 2,400+ years of Chinese history from the Warring States (403 BCE) to the present across 18 eras, 185 multi-stage territory snapshots, 471 milestones, 571 city landmarks, 20 strategic passes, and 113+ person chronicles.'
         : '交互式中国历史地图时间轴（公元前403年战国三家分晋至现代）：浏览18个朝代、185幅多阶段历史疆域与州道政区快照、471条编年大事、571处城池地标、20座天下名关与百余位青史人物行迹。';
       let canonicalUrl = baseSiteUrl;
@@ -6164,24 +6169,32 @@
         const pName = isEn ? p.en : p.zh;
         const isStory = Boolean(p && p.isStory);
         const paramKey = isStory ? 'event' : 'person';
-        pageTitle = isEn
-          ? `${pName} — ${isStory ? 'Event Storyline' : 'Historical Events'} Map · Jiangshan Atlas of China`
-          : `${pName}${isStory ? '历史大事件全脉络' : '生平纪事地图'} · 江山时序中国历史地图`;
-        pageDesc = isEn
-          ? `Interactive spatio-temporal chronicle of ${pName} across ${this.activePerson.events.length} historical sites in the Jiangshan Atlas of China.`
-          : `${pName}${isStory ? '' : '生平'} ${this.activePerson.events.length} 处历史事件时空落点、历代疆域与古今地名对照。`;
+        pageTitle = this.viMode
+          ? `${pName} — ${isStory ? 'Diễn biến sự kiện' : 'Bản đồ hành trình'} · Giang Sơn Thời Tự`
+          : isEn
+            ? `${pName} — ${isStory ? 'Event Storyline' : 'Historical Events'} Map · Jiangshan Atlas of China`
+            : `${pName}${isStory ? '历史大事件全脉络' : '生平纪事地图'} · 江山时序中国历史地图`;
+        pageDesc = this.viMode
+          ? `${pName}: ${this.activePerson.events.length} điểm dừng trên bản đồ lịch sử Trung Quốc tương tác, kèm cương vực các triều đại và địa danh xưa – nay.`
+          : isEn
+            ? `Interactive spatio-temporal chronicle of ${pName} across ${this.activePerson.events.length} historical sites in the Jiangshan Atlas of China.`
+            : `${pName}${isStory ? '' : '生平'} ${this.activePerson.events.length} 处历史事件时空落点、历代疆域与古今地名对照。`;
         canonicalUrl = `${baseSiteUrl}?${paramKey}=${encodeURIComponent(p.key)}${langTail ? `&${langTail}` : ''}`;
       } else if (cur && this._bootDone) {
         const dName = this.dynastyName(cur);
         const dSpan = this.formatSpan(cur);
         const dSeat = this.dynastySeat(cur);
         const dSum = this.dynastySummary(cur);
-        pageTitle = isEn
-          ? `${dName} (${dSpan}) Map · Jiangshan Historical Atlas of China`
-          : `${dName}历史地图（${dSpan}）疆域政区与古今地名 · 江山时序`;
-        pageDesc = isEn
-          ? `${dName} (${dSpan}) historical territory, administrative divisions & cities. Capital: ${dSeat}. ${dSum}`
-          : `${dName}（${dSpan}）历史疆域与州郡政区地图。都城：${dSeat}。${dSum}`;
+        pageTitle = this.viMode
+          ? `Bản đồ ${dName} (${dSpan}) · Giang Sơn Thời Tự`
+          : isEn
+            ? `${dName} (${dSpan}) Map · Jiangshan Historical Atlas of China`
+            : `${dName}历史地图（${dSpan}）疆域政区与古今地名 · 江山时序`;
+        pageDesc = this.viMode
+          ? `Bản đồ cương vực, châu quận và thành thị thời ${dName} (${dSpan}). Kinh đô: ${dSeat}. ${dSum}`
+          : isEn
+            ? `${dName} (${dSpan}) historical territory, administrative divisions & cities. Capital: ${dSeat}. ${dSum}`
+            : `${dName}（${dSpan}）历史疆域与州郡政区地图。都城：${dSeat}。${dSum}`;
         const qParams = typeof location !== 'undefined' ? new URLSearchParams(location.search) : null;
         if (qParams && qParams.has('year')) {
           canonicalUrl = `${baseSiteUrl}?year=${this.year}${langTail ? `&${langTail}` : ''}`;
