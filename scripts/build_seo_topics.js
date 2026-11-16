@@ -664,6 +664,8 @@ ${JSON.stringify(jsonLdObj, null, 2)}
       text-decoration: none;
     }
   </style>
+  <!-- Cloudflare Web Analytics (tuonglam.ca) -->
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "a1aace714e894b5d8ba6a81a78d05cc7"}'></script>
 </head>`;
 }
 
