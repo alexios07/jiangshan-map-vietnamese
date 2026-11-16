@@ -2597,7 +2597,11 @@
         const yr = isEn
           ? ` · ${this.formatYear(next.year)}`
           : ` · ${next.year <= 0 ? '前' + -next.year : next.year}年`;
-        const lead = curIdx < 0 ? (isEn ? 'Start' : '出发') : isEn ? 'Next' : '下一站';
+        // Built as one string, so the Vietnamese DOM layer cannot match it word by word.
+        const lead =
+          curIdx < 0
+            ? isEn ? (this.viMode ? 'Xuất phát' : 'Start') : '出发'
+            : isEn ? (this.viMode ? 'Tiếp' : 'Next') : '下一站';
         nextLabel = `${lead} · ${whoPrefix}${site}${yr}`;
       } else {
         nextLabel = isEn ? 'Back to overview' : '回到全图总览';

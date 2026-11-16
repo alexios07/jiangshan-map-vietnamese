@@ -34,7 +34,7 @@
 
 <p align="center">
   <a href="https://tuonglam.ca/">
-    <img src="assets/hero_demo_en.webp" alt="Giang Sơn Thời Tự — giới thiệu tương tác 15 giây (Tần thống nhất sáu nước, kéo dòng thời gian 2.400 năm, nguồn gốc địa danh Trường An và hành trình lưu đày của Tô Thức)" width="100%" />
+    <img src="assets/hero_demo_vi.webp" alt="Giang Sơn Thời Tự — giới thiệu bản tiếng Việt (Tần Thủy Hoàng thống nhất sáu nước, lướt dòng thời gian 2.400 năm, thẻ địa danh Trường An và hành trình lưu đày của Tô Thức)" width="100%" />
   </a>
 </p>
 
