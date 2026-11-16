@@ -2173,17 +2173,17 @@ async function runSearchRuntimeSuite(ctx) {
           casingEls.length >= 4 &&
             intEls.length >= 4 &&
             outEls.length >= 4 &&
-            dashEls.length >= 1 &&
+            // This fork does not draw the South China Sea dashed line (see js/china_geo_data.js).
+            dashEls.length === 0 &&
             grpProvNames.children.length === nonDashProvs.length,
           `Expected _buildModernProvinces to emit regional tiled boundary paths plus ${nonDashProvs.length} labels (casing=${casingEls.length}, interior=${intEls.length}, outer=${outEls.length}, dash=${dashEls.length})`
         );
         const lastCasingIdx = grpProv.children.indexOf(casingEls[casingEls.length - 1]);
         const firstIntIdx = grpProv.children.indexOf(intEls[0]);
         const lastOutIdx = grpProv.children.indexOf(outEls[outEls.length - 1]);
-        const firstDashIdx = grpProv.children.indexOf(dashEls[0]);
         assert(
-          lastCasingIdx < firstIntIdx && firstIntIdx < lastOutIdx && lastOutIdx < firstDashIdx,
-          'Province z-order must stack casing tiles below interior/outer tiles and maritime-dash on top'
+          lastCasingIdx < firstIntIdx && firstIntIdx < lastOutIdx,
+          'Province z-order must stack casing tiles below interior/outer tiles'
         );
         const terrainProvRule = cssSrc.match(
           /#atlas-svg\.terrain-active\s+\.province-shape:not\(\.maritime-dash\)\s*\{([^}]+)\}/

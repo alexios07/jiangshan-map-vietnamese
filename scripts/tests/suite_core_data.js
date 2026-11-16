@@ -150,6 +150,17 @@ async function runCoreDataSuite(ctx) {
 
   // 2. Validate modern provincial outlines
   assert(Array.isArray(provinces) && provinces.length >= 34, 'PROVINCE_OUTLINES must contain >= 34 provinces');
+  // This fork: no South China Sea dashed line, and Hainan province is Hainan Island only.
+  assert(!provinces.some((p) => String(p.code).includes('_JD')), 'The South China Sea dashed line must not be drawn');
+  const hainan = provinces.find((p) => String(p.code) === '460000');
+  assert(
+    hainan && hainan.rings.every((poly) => poly.every((ring) => ring.every(([, lat]) => lat >= 17.8))),
+    'Hainan province must not include the Paracel or Spratly islands'
+  );
+  assert(
+    !dynasties.some((d) => (d.settlements || []).some((st) => st.ancient === '三沙' || st.modern === '三沙')),
+    'The Sansha settlement must not be shown'
+  );
   let provRingCount = 0;
   for (const prov of provinces) {
     const isDash = String(prov.code).includes('_JD');
